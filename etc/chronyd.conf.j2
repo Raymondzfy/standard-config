@@ -1,0 +1,11 @@
+{% for ntp_server in config_file.ntp_servers %}
+server {{ ntp_server }} prefer
+{% endfor %}
+
+driftfile /var/lib/chrony/drift
+logdir /var/log/chrony
+log measurements statistics tracking
+keyfile /etc/chrony.keys
+commandkey 24
+local stratum 10
+initstepslew 20 master
