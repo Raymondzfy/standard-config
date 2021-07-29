@@ -1,0 +1,22 @@
+---
+standard_config_files: {
+  #/etc/motd are same on all the servers
+  "/etc/motd": {
+    "dest": "/etc/motd",
+    "owner": "root",
+    "group": "root",
+    "permission": "0644"
+  },
+  #/etc/chrony.conf are different on servers per Datacenters
+  "/etc/chrony.conf": {
+    "dest": "/etc/chrony",
+    "owner": "root",
+    "group": "root",
+    "permission": "0644",
+    "service": "chronyd",
+    "ntp_servers": {
+      "Boston": [ntp_server1,ntp_server2],
+      "Tokyo": [ntp_server2,ntp_server1]
+    }
+  }
+}
