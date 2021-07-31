@@ -1,4 +1,4 @@
-{% for ntp_server in configs.ntp_servers %}
+{% for ntp_server in configs.ntp_servers.group_names %}
 server {{ ntp_server }} prefer
 {% endfor %}
 
