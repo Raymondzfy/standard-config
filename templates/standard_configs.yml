@@ -9,7 +9,7 @@ standard_config_files: {
   },
   #/etc/chrony.conf are different on servers per Datacenters
   "/etc/chrony.conf": {
-    "dest": "/etc/chrony",
+    "dest": "/etc/chrony.conf",
     "owner": "root",
     "group": "root",
     "permission": "0644",
