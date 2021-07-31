@@ -2,6 +2,7 @@
 standard_config_files: {
   #/etc/motd are same on all the servers
   "/etc/motd": {
+    "src": "/etc/motd",
     "dest": "/etc/motd",
     "owner": "root",
     "group": "root",
@@ -9,6 +10,7 @@ standard_config_files: {
   },
   #/etc/chrony.conf are different on servers per Datacenters
   "/etc/chrony.conf": {
+    "src": "/etc/chrony.conf.j2",
     "dest": "/etc/chrony.conf",
     "owner": "root",
     "group": "root",
