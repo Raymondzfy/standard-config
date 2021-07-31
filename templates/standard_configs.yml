@@ -14,7 +14,7 @@ standard_config_files: {
     "group": "root",
     "permission": "0644",
     "service": "chronyd",
-    "packages_installed": ['chronyd'],
+    "packages_installed": ['chrony'],
     "packages_removed": ["ntp","ntpdate"],
     "ntp_servers": {
       "DC01": ['0.rhel.pool.ntp.org','1.rhel.pool.ntp.org','2.rhel.pool.ntp.org'],
