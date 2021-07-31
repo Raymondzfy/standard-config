@@ -1,4 +1,5 @@
-{% for ntp_server in config_file.ntp_servers %}
+{% set dc = hostvars[inventory_hostname].group_names[0] %}
+{% for ntp_server in configs.ntp_servers[dc] %}
 server {{ ntp_server }} prefer
 {% endfor %}
 

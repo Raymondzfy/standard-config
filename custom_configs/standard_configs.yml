@@ -2,6 +2,7 @@
 standard_config_files: {
   #/etc/motd are same on all the servers
   "/etc/motd": {
+    "src": "/etc/motd",
     "dest": "/etc/motd",
     "owner": "root",
     "group": "root",
@@ -9,15 +10,17 @@ standard_config_files: {
   },
   #/etc/chrony.conf are different on servers per Datacenters
   "/etc/chrony.conf": {
-    "dest": "/etc/chrony",
+    "src": "/etc/chrony.conf.j2",
+    "dest": "/etc/chrony.conf",
     "owner": "root",
     "group": "root",
     "permission": "0644",
     "service": "chronyd",
-    "packages_installed": ['chronyd'],
+    "packages_installed": ['chrony'],
     "packages_removed": ["ntp","ntpdate"],
     "ntp_servers": {
-      "DC01": ['0.rhel.pool.ntp.org','1.rhel.pool.ntp.org','2.rhel.pool.ntp.org'],
+      #CentOS default ntp servers['0.centos.pool.ntp.org','1.centos.pool.ntp.org','2.centos.pool.ntp.org','3.centos.pool.ntp.org']
+      "DC01": ['0.centos.pool.ntp.org','1.centos.pool.ntp.org','2.centos.pool.ntp.org'],
       "DC02": ['2.rhel.pool.ntp.org','1.rhel.pool.ntp.org','0.rhel.pool.ntp.org']
     }
   }
